@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require ('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,6 +10,11 @@ var usersRouter = require('./routes/users');
 const ingresoRouter = require('./routes/ingreso');
 const registroRouter = require('./routes/registro');
 const categoriasRouter = require('./routes/categorias');
+const loginRouter = require('./routes/login');
+const animesRouter = require('./routes/animes');
+const adminAnimeRouter = require('./routes/admin/anime');
+const adminIndexRouter = require('./routes/admin/index');
+const adminUsuariosRouter =require('./routes/admin/usuarios');
 var app = express();
 
 // view engine setup
@@ -20,17 +26,29 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+	secret: '1234',
+	resave: true,
+	saveUninitialized: true
+}));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ingreso', ingresoRouter);
 app.use('/registro', registroRouter);
 app.use('/categorias', categoriasRouter);
+app.use('/login', loginRouter);
+app.use('/animes',animesRouter);
+app.use('/admin/anime', adminAnimeRouter);
+app.use('/admin/index', adminIndexRouter);
+app.use('/admin/usuarios', adminUsuariosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

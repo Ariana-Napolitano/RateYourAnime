@@ -1,0 +1,46 @@
+<div class="container" style="margin-top:10vh;">
+    <div class="row">
+        <div class="col-12">
+            <h4>Animes cargados</h4>
+            <div class="col-4 mt-5">
+                <a class="btn btn-primary" href="/admin/anime/alta">Alta de anime</a>
+                
+
+            </div>
+            <form method="post" action="/admin/anime" enctype="multipart/form-data">
+            <table class="table table-hover table-responsive mt-3 text-center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Imagen</th>
+                        <th>Rating</th>
+                        <th>Categoria</th>
+                        <th></th>
+                        <th></th>
+
+
+                    </tr>
+            </form>
+                </thead>
+                <tbody>
+                    {{#each anime}}
+                    <tr>
+                        <td>{{nombre}}</td>
+                        <td>{{descripcion}}</td>
+                        <td><img src="/{{imagen}}" style="width:100px; height:auto"></td>
+                        <td>{{rating}}</td>
+                        <td>{{nombre_categoria}}</td>
+                        <td><a href="/admin/anime/modificacion/{{id}}" class="fas fa-cogs text-primary pr-3 pl-3"></i></td>
+                        
+                        <td><a href="/admin/anime/baja/{{id}}"><i class="fas fa-trash text-danger pr-3 pl-3"
+                                    style="cursor: pointer;"></i></a>
+                        </td>
+                    </tr>
+                    {{!--  XMLHTTPRequest  --}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
