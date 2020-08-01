@@ -2,13 +2,15 @@ const express = require('express');
 const router = express.Router();
 const serviceAnimes = require('./../models/animes');
 
-router.get('/single/:id', async (req,res)=> {
+router.get('/:id', async (req,res)=> {
     const id = req.params.id; 
     const anime = await serviceAnimes.getAnime(id);
-    res.render('anime', {anime, rating});
-})
+    res.render('anime', {anime});
+});
 
-router.get('/all', async(req,res)=> {
+router.get('/', async(req,res)=> {
+    const animes = await serviceAnimes.getAnimes()
+    res.render ("adminanimes", {animes});
+});
 
-})
 module.exports = router;

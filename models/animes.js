@@ -4,7 +4,7 @@ const pool = require ("../utils/bd");
 
 getAnimes = async () => {
     try{
-        const query = "SELECT a.id, a.nombre, a.descripcion, a.imagen, a.rating, c.nombre FROM animes as a JOIN categorias as c";
+        const query = "SELECT a.id, a.nombre, a.imagen, a.rating, c.nombre_categoria, c.id FROM animes as a JOIN categorias as c";
         const rows = await pool.query(query, [process.env.TABLA_ANIMES, process.env.TABLA_CATEGORIAS]);
         return rows;    
     }catch (error) {
