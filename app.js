@@ -12,7 +12,7 @@ const registroRouter = require('./routes/registro');
 const categoriasRouter = require('./routes/categorias');
 const loginRouter = require('./routes/login');
 const animesRouter = require('./routes/animes');
-const animeRouter = require('./routes/anime');
+
 const adminAnimeRouter = require('./routes/admin/anime');
 const adminIndexRouter = require('./routes/admin/index');
 const adminUsuariosRouter =require('./routes/admin/usuarios');
@@ -41,7 +41,7 @@ app.use('/registro', registroRouter);
 app.use('/categorias', categoriasRouter);
 app.use('/login', loginRouter);
 app.use('/animes',animesRouter);
-app.use('/anime', animeRouter);
+
 app.use('/admin/anime', adminAnimeRouter);
 app.use('/admin/index', adminIndexRouter);
 app.use('/admin/usuarios', adminUsuariosRouter);

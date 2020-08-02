@@ -4,7 +4,7 @@ const pool = require ("../utils/bd");
 
 getAnimes = async () => {
     try{
-        const query = "SELECT a.id, a.nombre, a.imagen, a.rating, c.nombre_categoria, c.id FROM animes as a JOIN categorias as c";
+        const query = "SELECT a.id, a.nombre, a.imagen, a.rating, c.nombre_categoria, c.id FROM animes as a JOIN categorias as c where a.id_categoria = c.id";
         const rows = await pool.query(query, [process.env.TABLA_ANIMES, process.env.TABLA_CATEGORIAS]);
         return rows;    
     }catch (error) {
@@ -13,7 +13,7 @@ getAnimes = async () => {
 };
 getAnime = async (id) => {
     try {
-        const query = "SELECT id, nombre, descripcion, imagen, rating FROM ?? WHERE id ?";
+        const query = "SELECT id, nombre, descripcion, imagen, rating FROM ?? WHERE id = ?";
         const params = [process.env.TABLA_ANIMES, id];
         const rows = await pool.query(query, params);
         return rows [0];

@@ -52,7 +52,7 @@ INSERT INTO `animes` (`id`, `nombre`, `id_categoria`, `descripcion`, `rating`, `
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) COLLATE utf16_spanish2_ci NOT NULL
+  `nombre_categoria` varchar(255) COLLATE utf16_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci;
 
 --

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+let env = require('dotenv').config();
 const {getCategories} = require('./../models/categoria');
 
 /* GET home page. */

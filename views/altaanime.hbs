@@ -18,13 +18,13 @@
                     <select class="form-control" name="id_categoria">
                         <option value="0" selected disabled>Seleccioná la categoria</option>
                         {{#each categorias}}
-                        <option value="{{id}}">{{nombre}}</option>
+                        <option value="{{id}}">{{nombre_categoria}}</option>
                         {{/each}}
                     </select>
 
                 </div>
                 <div class="form-group">
-                    <input type="file" class="form-control" name="imagen">
+                    <input type="file" class="form-control" name="imagen" >
                 </div>
                 <button type= "submit" class="btn btn-primary btn-block">Alta de anime</button>
                 <span class="text-success">{{message}}</span>

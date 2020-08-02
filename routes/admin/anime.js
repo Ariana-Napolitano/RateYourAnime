@@ -75,7 +75,7 @@ router.post("/alta", upload.single("imagen"), async (req, res) => {
       nombre: nombre,
       descripcion: descripcion,
       id_categoria: parseInt(id_categoria),
-    
+      imagen: "images/"+handledImage
     };
     const result = await create(object);
     console.log(`El insert id retornado es : ${result}`);
