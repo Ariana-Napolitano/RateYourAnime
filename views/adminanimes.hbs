@@ -27,13 +27,14 @@
                     <tr>
                         <td>{{nombre}}</td>
                         <td><img src="/{{imagen}}" style="width:100px; height:auto"></td>
-                        <td>{{rating}}</td>
+                        
                         <td>{{nombre_categoria}}</td>
                         <td><a href="/admin/anime/modificacion/{{id}}" class="fas fa-cogs text-primary pr-3 pl-3"></i></td>
                         
                         <td><a href="/admin/anime/baja/{{id}}"><i class="fas fa-trash text-danger pr-3 pl-3"
                                     style="cursor: pointer;"></i></a>
                         </td>
+
                     </tr>
                     {{!--  XMLHTTPRequest  --}}
                     {{/each}}

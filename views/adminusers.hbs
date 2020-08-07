@@ -5,7 +5,7 @@
             <table class="table table-hover table-responsive mt-3 text-center">
                 <thead>
                     <tr>
-                        <th>Usuario</th>
+                        <th>Nombre</th>
                         <th>Correo</th>
                         <th>Admin</th>
                         <th></th>
@@ -15,9 +15,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each usuarios}}
+                    {{#each usuario}}
                     <tr>
-                        <td>{{usuario}}</td>
+                        <td>{{nombre}}</td>
                         <td>{{correo}}</td>
                         <td>{{admin}}</td>
                         <td><a href="/admin/usuarios/cambiar/{{id}}/{{admin}}"><i class="fas fa-cogs text-primary pr-3 pl-3">Convertir a admin</i></a></td>

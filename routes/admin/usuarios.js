@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const {getUsuarios, updateAdmin, deletebyID} = require("./../../models/loginModel")
+
 router.get("/", async (req, res) => {
-    if(req.session.administrador){
+    if(req.session.admin){
     try {
       const usuarios = await getUsuarios();
       res.render("adminusers", { usuarios });
@@ -13,9 +14,9 @@ router.get("/", async (req, res) => {
     }
   });
   router.get("/baja/:id", async (req, res) => {
-    if(req.session.administrador){
+    if(req.session.admin){
     try {
-      const { id } = req.params;
+      let { id } = req.params;
       const result = await deletebyID(id);
       res.redirect("/admin/usuarios");
     } catch (error) {
@@ -28,7 +29,7 @@ router.get("/", async (req, res) => {
    
   });
   router.get("/cambiar/:id/:admin", async(req,res) => {
-    if (req.session.administrador) {
+    if (req.session.admin) {
         try{
         var { id, admin } = req.params;
         if(admin == 0){

@@ -4,10 +4,11 @@ var session = require ('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var dotenv = require ('dotenv');
+dotenv.config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const ingresoRouter = require('./routes/ingreso');
 const registroRouter = require('./routes/registro');
 const categoriasRouter = require('./routes/categorias');
 const loginRouter = require('./routes/login');
@@ -36,7 +37,6 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/ingreso', ingresoRouter);
 app.use('/registro', registroRouter);
 app.use('/categorias', categoriasRouter);
 app.use('/login', loginRouter);

@@ -1,8 +1,9 @@
 const pool = require("../utils/bd");
-const logueado = async(usuario, pass) => {
+
+const logueado = async(nombre, contraseña) => {
     try{
-    const query = "SELECT * FROM ?? WHERE usuario = ? AND password = ?"
-    const params = [process.env.TABLA_USUARIO, usuario, pass];
+    const query = "SELECT * FROM ?? WHERE nombre = ? AND contraseña = ?"
+    const params = [process.env.TABLA_USUARIO, nombre, contraseña];
     return await pool.query(query, params);
     }
     catch(error){

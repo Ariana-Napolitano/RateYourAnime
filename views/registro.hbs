@@ -1,21 +1,36 @@
-<div class="container_registro">
-  <div class="col-5">
-        <div class=" menu">
-          <form class="px-4 py-3">
-            <div class="form-group">
-              <label for="nombre">Nombre de usuario</label>
-                <input type="text" class="form-control nombre" id="nombre" placeholder="Ariana" name="nombre" required>
-            </div>
-          <div class="form-group">
-            <label for="Email">Correo</label>
-            <input type="email" class="form-control email" id="email" placeholder="email@example.com" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="exampleDropdownFormPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="*******" required>
-          </div>
-          <button type="submit" class="btn btn-dark">Ingresar</button>
-        </form>
-      </div>
-  </div>
+<div class="row justify-content-center" style="margin-top: 10em;">
+        <div class="col-12">
+            <h4>Registrese</h4>
+
+        </div>
+        <div class="col-4">
+
+            <form method="post" action="/registro">
+
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control">
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" class="form-control" id="correo" name="correo">
+                </div>
+
+                <div class="form-group">
+                    <label for="pass">Contraseña</label>
+                    <input type="password" name="pass" id="pass" class="form-control">
+                </div>
+
+                
+                <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                <span class="text-success">{{message}}</span>
+            </form>
+            <a href="/login">Ya tenes cuenta? Iniciar sesion</a>
+        </div>
+
+    </div>
+    
 </div>

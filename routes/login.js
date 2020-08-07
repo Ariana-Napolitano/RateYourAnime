@@ -10,18 +10,18 @@ router.get("/", async (req, res) => {
     }
   });
 router.post("/", async (req, res, next) => {
-    var usuario = req.body.usuario;
-    var pass = req.body.pass;
-    const resultado = await logueado(usuario, pass);
+    var nombre = req.body.nombre;
+    var contraseña = req.body.contraseña;
+    const resultado = await logueado(nombre, contraseña);
     if(resultado.length == 1){
         console.log('logueado');
-        req.session.username = usuario;
+        req.session.username = nombre;
         if(resultado[0].admin == 1){
-            req.session.administrador = true;
-            res.redirect('/admin/index');
+            req.session.admin = true;
+            res.redirect('/admin/anime');
         }
         else{
-            req.session.administrador = false;
+            req.session.admin = false;
             res.redirect('/');
         }
     }

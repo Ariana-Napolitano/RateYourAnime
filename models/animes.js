@@ -4,8 +4,8 @@ const pool = require ("../utils/bd");
 
 getAnimes = async () => {
     try{
-        const query = "SELECT a.id, a.nombre, a.imagen, a.rating, c.nombre_categoria, c.id FROM animes as a JOIN categorias as c where a.id_categoria = c.id";
-        const rows = await pool.query(query, [process.env.TABLA_ANIMES, process.env.TABLA_CATEGORIAS]);
+        const query = "SELECT a.id, a.nombre, a.imagen, c.nombre_categoria, c.id, p.id_anime, p.puntaje FROM animes as a INNER JOIN categorias as c on a.id_categoria = c.id INNER JOIN puntuacion as p on a.id = p.id_anime";
+        const rows = await pool.query(query);
         return rows;    
     }catch (error) {
         console.log (error);
@@ -13,7 +13,7 @@ getAnimes = async () => {
 };
 getAnime = async (id) => {
     try {
-        const query = "SELECT id, nombre, descripcion, imagen, rating FROM ?? WHERE id = ?";
+        const query = "SELECT id, nombre, descripcion, imagen FROM ?? WHERE id = ?";
         const params = [process.env.TABLA_ANIMES, id];
         const rows = await pool.query(query, params);
         return rows [0];
@@ -26,7 +26,8 @@ create = async(obj)=>{
     try{
         const query = "INSERT INTO ?? SET ?"
         const params = [process.env.TABLA_ANIMES,obj];
-        return await pool.query(query, params);
+        const rows= await pool.query(query, params);
+        return rows.insertId;
     }catch(error){
         console.log(error);
     }

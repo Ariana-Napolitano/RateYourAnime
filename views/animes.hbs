@@ -1,17 +1,16 @@
-    <section class="" style="margin-top:10em;">
-      <div class="container">
-        <div class="row">
-
-            <div class="col-8">
-                <img src="/{{anime.imagen}}" style="width:80%; height:auto;">
+<div class="container" style="margin-top:10em">
+    <div class="row">
+        {{#each animes}}
+            <div class="col-4 mt-2">
+                <div class="card" style="width: 50%;">
+                <img src="/{{imagen}}" class="card-img-top" alt="Descripcion de la imagen">
+                <div class="card-body">
+                    <h5 class="card-title">{{nombre}}</h5>
+                    <p class="card-text">{{descripcion}}</p>
+                    <a href="/animes/{{id}}" class="btn btn-primary btn-block">Ver más</a>
+                </div>
+                </div>
             </div>
-            <div class="col-4 mt-5">
-                <h2>{{anime.nombre}}</h2>
-                <p>{{anime.descripcion}}</p>
-                <h5>{{anime.rating}}</h5>
-                
-            </div>
-
-        </div>
-      </div>
-    </section> <!-- .section -->
+        {{/each}}
+    </div>
+</div>

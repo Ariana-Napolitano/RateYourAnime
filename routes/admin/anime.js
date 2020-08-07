@@ -8,14 +8,16 @@ const { getCategories } = require("./../../models/categoria");
 const imageHandler = require("./../../utils/imageHandler");
 
 router.get("/modificacion/:id", async (req, res) => {
- 
-  const { id } = req.params;
+ if(req.session.admin){
+  let { id } = req.params;
   const anime = await getAnime(id);
   const categorias = await getCategories(); 
   console.log(anime)
   console.log(categorias)
   res.render("adminmodif", { anime, categorias});
-
+}else{
+  res.send("No tenes permisos para ingresar");
+}
 });
 
 router.post("/modificacion/:id", upload.single("imagen"), async (req, res) => {
@@ -32,7 +34,7 @@ router.post("/modificacion/:id", upload.single("imagen"), async (req, res) => {
       rating: rating,
       imagen: "images/" + handledImage,
     };
-    const { id } = req.params;
+    let { id } = req.params;
     console.log(id);
     const result = await update(id, {obj});
     console.log(`El insert id a editar es : ${result}`);
@@ -44,7 +46,7 @@ router.post("/modificacion/:id", upload.single("imagen"), async (req, res) => {
 });
 
 router.get("/baja/:id", async (req, res) => {
-  if(req.session.administrador){
+  if(req.session.admin){
   try {
     const { id } = req.params;
     const result = await update(id, { estado: 0 });
@@ -60,10 +62,12 @@ router.get("/baja/:id", async (req, res) => {
 
 
 router.get("/alta", async (req, res) => {
- 
+ if(req.session.admin){
   const categorias = await getCategories();
   res.render("altaanime", { categorias }); // categorias
-
+}else{
+  res.send("No tenes permisos para ingresar");
+}
 });
 
 router.post("/alta", upload.single("imagen"), async (req, res) => {
@@ -88,14 +92,16 @@ router.post("/alta", upload.single("imagen"), async (req, res) => {
 
 
 router.get("/", async (req, res) => {
- 
+ if(req.session.admin){
   try {
     const animes = await getAnimes();
     res.render("adminanimes", {animes});
   } catch(error) {
     console.log(error);
   }
-
+}else{
+  res.send("No tenes permisos para ingresar");
+}
 });
 
 
