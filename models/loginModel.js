@@ -1,9 +1,9 @@
 const pool = require("../utils/bd");
 
-const logueado = async(nombre, contraseña) => {
+const logueado = async(nombre, pass) => {
     try{
-    const query = "SELECT * FROM ?? WHERE nombre = ? AND contraseña = ?"
-    const params = [process.env.TABLA_USUARIO, nombre, contraseña];
+    const query = "SELECT * FROM ?? WHERE nombre = ? AND pass = ?"
+    const params = [process.env.TABLA_USUARIO, nombre, pass];
     return await pool.query(query, params);
     }
     catch(error){
@@ -12,7 +12,7 @@ const logueado = async(nombre, contraseña) => {
 };
 getUsuarios = async() => {
     try {
-        const query = "SELECT * from ??"
+        const query = "SELECT * from ?? where admin = 1"
         const params = [process.env.TABLA_USUARIO]
         const rows = await pool.query(query, params);
         return rows;
@@ -27,7 +27,7 @@ const deletebyID = async (id) => {
   };
 const updateAdmin = async(id, admin) => {
     const query = "UPDATE ?? SET usuario.admin = ? WHERE id = ?"
-    const params = [process.env.TABLA_USUARIO, admin, id];
+    const params = [ admin, id];
     return await pool.query(query,params);
 }
 const create = async (obj) => {

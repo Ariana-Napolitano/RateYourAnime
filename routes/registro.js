@@ -12,7 +12,7 @@ router.post('/', async (req,res) =>{
         const object = {
           nombre: nombre,
           correo: correo,
-          pass: contraseña,
+          pass: pass,
         };
         const result = await create(object);
         console.log(`El insert id retornado es : ${result}`);
