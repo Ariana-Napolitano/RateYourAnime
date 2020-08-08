@@ -4,7 +4,7 @@ const pool = require ("../utils/bd");
 
 getAnimes = async () => {
     try{
-        const query = "SELECT a.id, a.nombre, a.imagen, c.nombre_categoria, c.id, p.id_anime, p.puntaje FROM animes as a INNER JOIN categorias as c on a.id_categoria = c.id INNER JOIN puntuacion as p on a.id = p.id_anime";
+        const query = "SELECT a.id, a.nombre, a.imagen, c.nombre_categoria, c.id FROM animes as a INNER JOIN categorias as c on a.id_categoria = c.id ";
         const rows = await pool.query(query);
         return rows;    
     }catch (error) {
