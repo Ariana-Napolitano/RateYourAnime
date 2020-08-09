@@ -6,20 +6,16 @@
         </div>
         <div class="col-8">
 
-            <form method="post" action="/admin/anime/modificacion/:id" enctype="multipart/form-data">
+            <form method="post" action="/admin/anime/modificacion/{{anime.id}}" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control">
+                    <label for="nombre" >Nombre</label>
+                    <input value = "{{anime.nombre}}" type="text" name="nombre" id="nombre" class="form-control">
                 </div>
 
-                <div class="form-group">
-                    <label for="rating">Rating</label>
-                    <input type="number" id="rating" name="rating" class="form-control">
-                </div>
                 <div class="form-group">
                     <label for="descripcion">Descripcion</label>
-                    <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                    <textarea class="form-control" id="descripcion" name="descripcion">{{anime.descripcion}}</textarea>
                 </div>
 
                 <div class="form-group">

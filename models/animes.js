@@ -4,7 +4,7 @@ const pool = require ("../utils/bd");
 
 getAnimes = async () => {
     try{
-        const query = "SELECT a.id, a.nombre, a.imagen, c.nombre_categoria, c.id FROM animes as a INNER JOIN categorias as c on a.id_categoria = c.id ";
+        const query = "SELECT a.id, a.nombre, a.imagen, c.nombre_categoria FROM animes as a INNER JOIN categorias as c on a.id_categoria = c.id WHERE estado= 1";
         const rows = await pool.query(query);
         return rows;    
     }catch (error) {
@@ -32,15 +32,18 @@ create = async(obj)=>{
         console.log(error);
     }
 };
-update = async(obj) =>{
+update = async(id,obj) =>{
     try{
-        const query ="UPDATE INTO ?? SET ?"
-        const params = [process.env.TABLA_ANIMES, obj];
+        const query ="UPDATE ?? SET nombre = ?, id_categoria = ?,descripcion =?,imagen =?  where id = ?"
+        const params = [process.env.TABLA_ANIMES,obj.nombre, obj.id_categoria, obj.descripcion, obj.imagen,id];
         return await pool.query(query,params);
     }catch(error){
         console.log(error);
     }
 };
+
+
+
 
 module.exports = {
     getAnimes,

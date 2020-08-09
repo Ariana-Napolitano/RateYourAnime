@@ -25,9 +25,9 @@ router.post("/modificacion/:id", upload.single("imagen"), async (req, res) => {
     console.log(req.body)
     console.log(req.file)
     
-    const handledImage = imageHandler.saveImage(req.file);
-    const { nombre, descripcion, id_categoria } = req.body;
-    const obj = {
+    const handledImage = await imageHandler.saveImage(req.file);
+    let { nombre, descripcion, id_categoria } = req.body;
+    const obj= {
       nombre: nombre,
       descripcion: descripcion,
       id_categoria: parseInt(id_categoria),
@@ -35,7 +35,7 @@ router.post("/modificacion/:id", upload.single("imagen"), async (req, res) => {
     };
     let { id } = req.params;
     console.log(id);
-    const result = await update(id, {obj});
+    const result = await update(id, obj);
     console.log(`El insert id a editar es : ${result}`);
     res.render("adminmodif", { message: "Anime modificado con exito." });
   } catch (error) {

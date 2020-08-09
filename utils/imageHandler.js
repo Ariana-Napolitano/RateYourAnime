@@ -1,7 +1,7 @@
 const fs = require("fs"); // file system
 const uuid = require("node-uuid"); // generar strings únicos
 const saveImage = (file) => {
-  const extensionAllow = ["jpg", "png"];
+  const extensionAllow = ["jpg", "png", "jpeg"];
   let fileNameResult = "";
   const { mimetype, filename } = file; // image/jpg
   const extension = mimetype.split("/")[1]; // -> ['image', 'jpg']
