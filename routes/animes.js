@@ -15,4 +15,5 @@ router.get('/:id', async (req,res)=> {
     res.render('anime', {anime});
 });
 
+
 module.exports = router;

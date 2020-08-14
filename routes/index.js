@@ -3,7 +3,6 @@ var router = express.Router();
 let env = require('dotenv').config();
 const cron = require('node-cron');
 const {getCategories} = require('./../models/categoria');
-const serviceComentarios = require ('./../models/comentarios');
 const comentarios = require('./../models/comentarios');
 
 /* GET home page. */
