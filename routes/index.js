@@ -3,13 +3,15 @@ var router = express.Router();
 let env = require('dotenv').config();
 const cron = require('node-cron');
 const {getCategories} = require('./../models/categoria');
-const comentarios = require('./../models/comentarios');
+const puntuacion = require('./../models/puntuacion');
+const { calcularPuntajes } = require('./../models/puntuacion');
 
+
+cron.schedule('*/30 * * * * *', () => {
+  puntuacion.calcularPuntajes();
+});
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  cron.schedule('1-5 * * * *', () => {
-    comentarios.calculoComentarios();
-  });
   res.render('index', { title: 'Rate Your Anime '});
 });
 

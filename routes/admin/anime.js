@@ -81,7 +81,6 @@ router.post("/alta", upload.single("imagen"), async (req, res) => {
       imagen: "images/" + handledImage
     };
     const result = await create(object);
-    console.log(`El insert id retornado es : ${result}`);
     res.render("altaanime", { message: "Anime dado de alta" });
   } catch (error) {
     console.log(error);

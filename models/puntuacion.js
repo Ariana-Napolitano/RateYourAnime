@@ -2,7 +2,9 @@ const pool = require("./../utils/bd");
 const serviceComentarios = require ("./comentarios");
 const serviceAnimes = require ("./animes");
 
-const calcularPuntajes = async () =>{
+
+
+calcularPuntajes = async () =>{
     const animes = serviceAnimes.getAnimes();
     for (i=0; i<animes.length; i++){
         const anime = animes [i];
@@ -23,4 +25,4 @@ const calcularPuntajes = async () =>{
 
 module.exports = {
     calcularPuntajes,
-  };
+};

@@ -7,13 +7,8 @@
             </div>
             <div class="col-4 mt-5">
                 <h2>{{anime.nombre}}</h2>
+                <input type="number" name="puntajeTotal" id="puntajeTotal" class="rating" value={{anime.puntaje}} data-clearableIcon="" data-readonly=true/>
                 <div class="container">
-                    <span id="rateMe2"  class="empty-stars"></span>
-                    <div class="stars-outer">
-                        <div class="stars-inner"></div>
-                    </div>
-                    <span class="number-rating"></span>
-                </div>
                 <p>{{anime.descripcion}}</p>
                 
                 
@@ -25,19 +20,21 @@
     <div class="container" style="margin-top:10em">
 <div class="row bootstrap snippets">
     <div class="col-12">
+        <form method="post" action="/animes/{{anime.id}}/comentario">
         <div class="comment-wrapper">
             <div class="panel panel-info">
                 <div class="panel-heading">
                 </div>
                 <div class="panel-body">
-                    <div class="stars-outer">
-                        <div class="stars-inner"></div>
-                    <textarea class="form-control" placeholder="Escribe tu reseña aqui..." rows="3"></textarea>
+                    <input type="number" name="puntaje" id="puntaje" class="rating" data-clearableIcon=""/>
+                    <textarea class="form-control" name = "comentario" placeholder="Escribe tu reseña aqui..." rows="3"></textarea>
                     <br>
-                    <button type="button" class="btn btn-info pull-right">Post</button>
+                    <button type="submit" class="btn btn-primary ">Post</button>
+                    </form>
                     <div class="clearfix"></div>
                     <hr>
                     <div class="row">
+                    <div class="col-12">
                       {{#each comentarios}}
                     <ul class="media-list">
                         <li class="media">
@@ -52,6 +49,7 @@
                     </ul>
                     {{/each}}
                     </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,4 +57,3 @@
     </div>
 </div>
 </div>
-<script src="js/addons/rating.js"></script>
