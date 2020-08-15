@@ -65,6 +65,16 @@ update = async(id,obj) =>{
     }
 };
 
+buscarAnime = async (nombre) =>{
+    try {
+        const query = "SELECT * FROM ?? WHERE nombre LIKE ?";
+        const params = [process.env.TABLA_ANIMES, "%"+nombre+"%"];
+        return await pool.query (query, params);
+    }catch(error) {
+        console.log (error);
+    }
+};
+
 
 
 
@@ -73,4 +83,5 @@ module.exports = {
     getAnime,
     create,
     update,
+    buscarAnime
 } 

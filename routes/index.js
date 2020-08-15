@@ -5,6 +5,7 @@ const cron = require('node-cron');
 const {getCategories} = require('./../models/categoria');
 const puntuacion = require('./../models/puntuacion');
 const { calcularPuntajes } = require('./../models/puntuacion');
+const seviceAnime = require ('./../models/animes');
 
 
 cron.schedule('*/30 * * * * *', () => {
