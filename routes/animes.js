@@ -33,6 +33,12 @@ router.post('/:id/comentario', async (req,res)=>{
 });
 
 
+router.post('/nombre', async (req,res)=>{
+    const nombre = req.body.buscador;
+    const animes = await serviceAnimes.buscarAnime(nombre);
+    res.render ('animes', {animes});
+});
+
 
 
 
