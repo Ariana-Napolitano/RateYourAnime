@@ -67,7 +67,7 @@ update = async(id,obj) =>{
 
 buscarAnime = async (nombre) =>{
     try {
-        const query = "SELECT * FROM ?? WHERE nombre LIKE ?";
+        const query = "SELECT id, nombre, imagen FROM ?? WHERE nombre LIKE ?";
         const params = [process.env.TABLA_ANIMES, "%"+nombre+"%"];
         return await pool.query (query, params);
     }catch(error) {

@@ -21,9 +21,9 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/registro">Registro</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/animes">Animes</a></li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" method="POST" action="/animes/nombre">
-                        <input class="form-control mr-sm-2"  name="buscador" type="search" placeholder="Buscar" aria-label="Search">
-                          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+                    <form class="form-inline my-2 my-lg-0" id="form" method="POST" action="/animes" >
+                        <input class="form-control mr-sm-2"  name="buscador" id="buscador" type="search" placeholder="Buscar" aria-label="Search">
+                          <button class="btn btn-outline-light my-2 my-sm-0" id="boton" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -38,5 +38,6 @@
         <!-- Core theme JS-->
         <script src="https://kit.fontawesome.com/23ad35edc0.js" crossorigin="anonymous"></script>
         <script src="/javascripts/bootstrap4-rating-input.min.js"></script>
+
   </body>
 </html>

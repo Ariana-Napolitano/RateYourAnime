@@ -9,7 +9,6 @@ dotenv.config();
 
 var indexRouter = require('./routes/index');
 const registroRouter = require('./routes/registro');
-const categoriasRouter = require('./routes/categorias');
 const loginRouter = require('./routes/login');
 const animesRouter = require('./routes/animes');
 
@@ -36,7 +35,6 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/registro', registroRouter);
-app.use('/categorias', categoriasRouter);
 app.use('/login', loginRouter);
 app.use('/animes',animesRouter);
 
